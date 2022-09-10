@@ -1,20 +1,26 @@
 using Isu.Entities;
 using Isu.Models;
 
-namespace Isu.Services;
-
-public interface IIsuService
+namespace Isu.Services
 {
-    Group AddGroup(GroupName name);
-    Student AddStudent(Group group, string name);
+    public interface IIsuService
+    {
+        Group AddGroup(GroupName name);
 
-    Student GetStudent(int id);
-    Student? FindStudent(int id);
-    List<Student> FindStudents(GroupName groupName);
-    List<Student> FindStudents(CourseNumber courseNumber);
+        Student AddStudent(Group group, string name);
 
-    Group? FindGroup(GroupName groupName);
-    List<Group> FindGroups(CourseNumber courseNumber);
+        Student GetStudent(int id);
 
-    void ChangeStudentGroup(Student student, Group newGroup);
+        Student FindStudent(int id);
+
+        List<Student> FindStudents(GroupName groupName);
+
+        List<Student> FindStudents(CourseNumber courseNumber);
+
+        Group FindGroup(GroupName groupName);
+
+        List<Group> FindGroups(CourseNumber courseNumber);
+
+        void ChangeStudentGroup(Student student, Group newGroup);
+    }
 }
